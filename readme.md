@@ -10,3 +10,10 @@ In this first part we will approach tensor definition and initialization, basic 
 [Notebook](PyTorch101%20-%20Part%201%20-%20Using%20tensors.ipynb)
 
 [PyTorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html)
+
+## Part 2 - Autograd
+In the second part of the tutorial we explore pytorch's automatic differentiation and we show some of its usage.
+
+[Notebook](PyTorch101%20-%20Part%202%20-%20Autograd.ipynb)
+
+[PyTorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html)
