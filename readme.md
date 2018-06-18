@@ -4,5 +4,9 @@ I'm already experienced with Tensorflow, so I will focus also on the differences
 
 This series of tutorial is intended only to be of practical usage, not a theoretical analysis of different problems.
 
-## [Part 1 - Using tensors](PyTorch101 - Part 1 - Using tensors.ipynb)
+## Part 1 - Using tensors
 In this first part we will approach tensor definition and initialization, basic operations like addition and reshaping, plus some cool features like numpy integration and CUDA usage.
+
+[Notebook](PyTorch101 - Part 1 - Using tensors.ipynb)
+
+[PyTorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html)
