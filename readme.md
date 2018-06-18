@@ -7,6 +7,6 @@ This series of tutorial is intended only to be of practical usage, not a theoret
 ## Part 1 - Using tensors
 In this first part we will approach tensor definition and initialization, basic operations like addition and reshaping, plus some cool features like numpy integration and CUDA usage.
 
-[Notebook]("PyTorch101 - Part 1 - Using tensors.ipynb")
+[Notebook](PyTorch101%20-%20Part%201%20-%20Using%20tensors.ipynb)
 
 [PyTorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html)
