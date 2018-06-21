@@ -32,7 +32,7 @@ We take a step further in the Neural Networks world, by training our previously 
 
 [PyTorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
 
-## Part 5 - Remote GPU Training
+## Part 5 - Remote GPU Training
 This time, we are going to tackle a very similar problem as before, image classification on the CIFAR10 dataset, but diving deeply into GPU training on a remote machine, also demonstrating how we can move trained models around, following the instructions from [here](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch)
 
 [Notebook](PyTorch101%20-%20Part%202%20-%20Remote%20GPU%20Training.ipynb)
