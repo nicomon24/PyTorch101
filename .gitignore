@@ -1,1 +1,4 @@
 .ipynb_checkpoints/
+mnist_data/
+model/
+runs/
