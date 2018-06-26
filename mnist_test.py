@@ -63,7 +63,7 @@ if __name__ == '__main__':
         # Space for other transformations
         transforms.ToTensor() # We need this to get a tensor instead of a PIL image
     ])
-    testset = torchvision.datasets.MNIST(root='./data', train=False, download=True, transform=transform)
+    testset = torchvision.datasets.MNIST(root='./mnist_data', train=False, download=True, transform=transform)
     testloader = torch.utils.data.DataLoader(testset, batch_size=BATCH_SIZE, shuffle=False, num_workers=2)
 
     # Load the model

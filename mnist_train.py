@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
     # Load data: we only need trainset here
     transform = transforms.Compose([transforms.ToTensor()])
-    trainset = torchvision.datasets.MNIST(root='./data', train=True, download=True, transform=transform)
+    trainset = torchvision.datasets.MNIST(root='./mnist_data', train=True, download=True, transform=transform)
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=BATCH_SIZE, shuffle=True, num_workers=2)
 
     # Instantiate net
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         for i, data in tqdm(enumerate(trainloader, 0), total=len(trainset)//BATCH_SIZE):
             # Get the inputs
             inputs, labels = data
-            inputs, labels = inputs.to(device), labels.to(device) 
+            inputs, labels = inputs.to(device), labels.to(device)
             # zero the parameter gradients
             optimizer.zero_grad()
             # forward + backward + optimize
