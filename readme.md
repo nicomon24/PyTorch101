@@ -34,6 +34,7 @@ We take a step further in the Neural Networks world, by training our previously 
 
 ## Part 5 - Remote GPU Training
 This time, we are going to tackle a very similar problem as before, image classification on the MNIST dataset, but diving deeply into GPU training on a remote machine, also demonstrating how we can move trained models around, following the instructions from [here](https://stackoverflow.com/questions/42703500/best-way-to-save-a-trained-model-in-pytorch).
+We train and test using standalone scripts instead of jupyter notebook, to allow easy remote training. Scripts are inside the script directory.
 
 [Notebook](PyTorch101%20-%20Part%205%20-%20Remote%20GPU%20Training.ipynb)
 
