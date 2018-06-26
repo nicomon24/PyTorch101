@@ -59,6 +59,8 @@ if __name__ == '__main__':
     """)
     FLAGS, unparsed = parser.parse_known_args()
 
+    device_name = "cuda:0" if torch.cuda.is_available() else "cpu"
+
     transform = transforms.Compose([
         # Space for other transformations
         transforms.ToTensor() # We need this to get a tensor instead of a PIL image
@@ -68,7 +70,7 @@ if __name__ == '__main__':
 
     # Load the model
     net = Net()
-    net.load_state_dict(torch.load(FLAGS.checkpoint))
+    net.load_state_dict(torch.load(FLAGS.checkpoint, map_location=device_name))
     net.eval()
 
     # Compute predictions
