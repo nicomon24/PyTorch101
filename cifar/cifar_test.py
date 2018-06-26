@@ -65,8 +65,9 @@ if __name__ == '__main__':
     accuracy = 0
     for i, data in tqdm(enumerate(testloader, 0), total=len(testset)//BATCH_SIZE):
         inputs, labels = data
+        inputs, labels = inputs.to(device), labels.to(device)
         outputs = net(inputs)
-        o = outputs.detach().numpy()
+        o = outputs.cpu().detach().numpy()
         predictions = np.argmax(o, axis=1)
         # Add to accumulator
         accuracy += np.equal(predictions, labels).sum().item()
