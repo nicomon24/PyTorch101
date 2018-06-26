@@ -39,38 +39,47 @@ class VggNet(nn.Module):
 
     def __init__(self):
         super(VggNet, self).__init__()
-        # Define the network modules
+        # Convolutions
         self.c1 = nn.Conv2d(3, 64, 3, padding=1)
         self.c2 = nn.Conv2d(64, 64, 3, padding=1)
-        self.mp3 = nn.MaxPool2d(2, stride=2)
-        self.c4 = nn.Conv2d(64, 128, 3, padding=1)
-        self.c5 = nn.Conv2d(128, 128, 3, padding=1)
-        self.mp6 = nn.MaxPool2d(2, stride=2)
-        self.c7 = nn.Conv2d(128, 256, 3, padding=1)
+        self.c3 = nn.Conv2d(64, 128, 3, padding=1)
+        self.c4 = nn.Conv2d(128, 128, 3, padding=1)
+        self.c5 = nn.Conv2d(128, 256, 3, padding=1)
+        self.c6 = nn.Conv2d(256, 256, 3, padding=1)
+        self.c7 = nn.Conv2d(256, 256, 3, padding=1)
         self.c8 = nn.Conv2d(256, 256, 3, padding=1)
-        self.c9 = nn.Conv2d(256, 256, 3, padding=1)
-        self.c10 = nn.Conv2d(256, 256, 3, padding=1)
-        self.mp11 = nn.MaxPool2d(2, stride=2)
-        self.fc12 = nn.Linear(256 * 4 * 4, 256)
-        self.fc13 = nn.Linear(256, 10)
+        # Linear
+        self.fc9 = nn.Linear(256 * 4 * 4, 256)
+        self.fc10 = nn.Linear(256, 10)
+        # Batch norms
+        self.bn1 = nn.BatchNorm2d(3)
+        self.bn2 = nn.BatchNorm2d(64)
+        self.bn3 = nn.BatchNorm2d(64)
+        self.bn4 = nn.BatchNorm2d(128)
+        self.bn5 = nn.BatchNorm2d(128)
+        self.bn6 = nn.BatchNorm2d(256)
+        self.bn7 = nn.BatchNorm2d(256)
+        self.bn8 = nn.BatchNorm2d(256)
+        self.bn9 = nn.BatchNorm2d(256 * 4 * 4)
+        self.bn10 = nn.BatchNorm2d(256)
 
     def forward(self, x):
         # Convolutions
-        x = F.relu(self.c1(x))
-        x = F.relu(self.c2(x))
-        x = self.mp3(x)
-        x = F.relu(self.c4(x))
-        x = F.relu(self.c5(x))
-        x = self.mp6(x)
-        x = F.relu(self.c7(x))
-        x = F.relu(self.c8(x))
-        x = F.relu(self.c9(x))
-        x = F.relu(self.c10(x))
-        x = self.mp11(x)
+        x = F.relu(self.c1(self.bn1(x)))
+        x = F.relu(self.c2(self.bn2(x))))
+        x = F.max_pool2d(x, 2)
+        x = F.relu(self.c3(self.bn3(x)))
+        x = F.relu(self.c4(self.bn4(x)))
+        x = F.max_pool2d(x, 2)
+        x = F.relu(self.c5(self.bn5(x)))
+        x = F.relu(self.c6(self.bn6(x)))
+        x = F.relu(self.c7(self.bn7(x)))
+        x = F.relu(self.c8(self.bn8(x)))
+        x = F.max_pool2d(x, 2)
         # Fully connected
         x = x.view(-1, self.num_flat_features(x))
-        x = F.relu(self.fc12(x))
-        x = F.relu(self.fc13(x))
+        x = F.relu(self.fc9(self.bn9(x)))
+        x = F.relu(self.fc10(self.bn10(x)))
         return x
 
     def num_flat_features(self, x):
