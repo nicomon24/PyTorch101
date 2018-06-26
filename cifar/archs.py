@@ -66,7 +66,7 @@ class VggNet(nn.Module):
     def forward(self, x):
         # Convolutions
         x = F.relu(self.c1(self.bn1(x)))
-        x = F.relu(self.c2(self.bn2(x))))
+        x = F.relu(self.c2(self.bn2(x)))
         x = F.max_pool2d(x, 2)
         x = F.relu(self.c3(self.bn3(x)))
         x = F.relu(self.c4(self.bn4(x)))
