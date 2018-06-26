@@ -60,8 +60,8 @@ class VggNet(nn.Module):
         self.bn6 = nn.BatchNorm2d(256)
         self.bn7 = nn.BatchNorm2d(256)
         self.bn8 = nn.BatchNorm2d(256)
-        self.bn9 = nn.BatchNorm2d(256 * 4 * 4)
-        self.bn10 = nn.BatchNorm2d(256)
+        self.bn9 = nn.BatchNorm1d(256 * 4 * 4)
+        self.bn10 = nn.BatchNorm1d(256)
 
     def forward(self, x):
         # Convolutions
