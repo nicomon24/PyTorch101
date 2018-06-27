@@ -1,4 +1,6 @@
 .ipynb_checkpoints/
 **/mnist_data/
+**/cifar_data/
 **/model/
 **/runs/
+**/__pycache__/

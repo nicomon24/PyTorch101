@@ -60,6 +60,8 @@ if __name__ == '__main__':
     FLAGS, unparsed = parser.parse_known_args()
 
     device_name = "cuda:0" if torch.cuda.is_available() else "cpu"
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    print("Device:", device)
 
     transform = transforms.Compose([
         # Space for other transformations
@@ -69,7 +71,7 @@ if __name__ == '__main__':
     testloader = torch.utils.data.DataLoader(testset, batch_size=BATCH_SIZE, shuffle=False, num_workers=2)
 
     # Load the model
-    net = Net()
+    net = Net().to(device)
     net.load_state_dict(torch.load(FLAGS.checkpoint, map_location=device_name))
     net.eval()
 
