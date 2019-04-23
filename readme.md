@@ -37,5 +37,3 @@ This time, we are going to tackle a very similar problem as before, image classi
 We train and test using standalone scripts instead of jupyter notebook, to allow easy remote training. Scripts are inside the script directory.
 
 [Notebook](PyTorch101%20-%20Part%205%20-%20Remote%20GPU%20Training.ipynb)
-
-[PyTorch Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html)
